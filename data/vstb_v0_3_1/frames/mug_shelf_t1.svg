@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>mug moved to shelf</title>
+<rect data-id="desk" x="90" y="285" width="620" height="55" rx="8" fill="#b08968"/>
+<rect data-id="shelf" x="90" y="120" width="620" height="35" rx="8" fill="#6d6875"/>
+<circle data-id="mug" cx="560" cy="92" r="42" fill="#e4572e"/>
+</svg>

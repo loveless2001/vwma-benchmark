@@ -1,0 +1,39 @@
+[
+  {
+    "item_count": 1,
+    "item_ids": [
+      "vstb_pen_counterfactual_001"
+    ],
+    "split": "VSTB-dev-synth"
+  },
+  {
+    "item_count": 6,
+    "item_ids": [
+      "vstb_similar_swap_007",
+      "vstb_camera_motion_008",
+      "vstb_false_claim_009",
+      "vstb_same_final_history_a_010",
+      "vstb_same_final_history_b_011",
+      "vstb_depth_support_012"
+    ],
+    "split": "VSTB-test-adversarial"
+  },
+  {
+    "item_count": 5,
+    "item_ids": [
+      "vstb_keys_occlusion_002",
+      "vstb_mug_moved_003",
+      "vstb_cable_unplugged_004",
+      "vstb_drawer_opened_005",
+      "vstb_string_attached_006"
+    ],
+    "split": "VSTB-test-synth"
+  },
+  {
+    "item_count": 1,
+    "item_ids": [
+      "vstb_train_cup_occlusion_000"
+    ],
+    "split": "VSTB-train-synth"
+  }
+]

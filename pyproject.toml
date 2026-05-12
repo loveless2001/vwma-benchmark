@@ -1,0 +1,10 @@
+[project]
+name = "vwma-benchmark"
+version = "0.1.0"
+description = "Visual State Transition Benchmark for VWMA-style mutable visual world models"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

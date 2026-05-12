@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>left hand released, right hand supports pen</title>
+<rect data-id="left_hand" x="90" y="140" width="140" height="44" rx="8" fill="#c79a65"/>
+<rect data-id="right_hand" x="530" y="220" width="150" height="44" rx="8" fill="#c79a65"/>
+<rect data-id="pen" x="245" y="235" width="310" height="14" rx="8" fill="#244b9b"/>
+</svg>

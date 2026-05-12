@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>2D overlap but depth shows no support</title>
+<rect data-id="hand_far" x="300" y="225" width="150" height="42" rx="8" fill="#c79a65"/>
+<circle data-id="ball_near" cx="390" cy="245" r="38" fill="#06b6d4"/>
+<line data-id="depth_axis" x1="585" y1="100" x2="650" y2="310" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+</svg>

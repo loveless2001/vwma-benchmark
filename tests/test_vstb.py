@@ -1,0 +1,64 @@
+from pathlib import Path
+
+from vwma_benchmark.baselines import (
+    base_model_prior,
+    state_cleared_ablation,
+    structured_state_oracle,
+)
+from vwma_benchmark.metrics import evaluate
+from vwma_benchmark.schema import load_jsonl, validate_dataset
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ITEMS = ROOT / "data" / "vstb_v0_3_1" / "items.jsonl"
+FRAMES = ROOT / "data" / "vstb_v0_3_1"
+
+
+def test_dataset_validates_and_covers_required_splits():
+    items = load_jsonl(ITEMS)
+    assert len(items) == 13
+    assert validate_dataset(items, FRAMES) == []
+    splits = {item["split"] for item in items}
+    assert "VSTB-train-synth" in splits
+    assert "VSTB-dev-synth" in splits
+    assert "VSTB-test-synth" in splits
+    assert "VSTB-test-adversarial" in splits
+
+
+def test_benchmark_contains_required_adversarial_probes():
+    items = load_jsonl(ITEMS)
+    tags = {tag for item in items for tag in item["adversarial_tags"]}
+    assert "frame_identical_pair" in tags
+    assert "provenance_corruption" in tags
+    assert "false_user_claim" in tags
+    assert "depth_stress" in tags
+    assert "identity_swap" in tags
+    pair = [item for item in items if "frame_identical_pair" in item["adversarial_tags"]]
+    assert len(pair) == 2
+    assert pair[0]["frames"][-1] == pair[1]["frames"][-1]
+    assert (
+        pair[0]["labels"]["expected_physical_consequence"]
+        != pair[1]["labels"]["expected_physical_consequence"]
+    )
+
+
+def test_oracle_scores_above_prior_baseline():
+    items = load_jsonl(ITEMS)
+    oracle_report = evaluate(items, [structured_state_oracle(item) for item in items])
+    prior_report = evaluate(items, [base_model_prior(item) for item in items])
+    assert oracle_report["aggregate"]["overall"] > 0.95
+    assert prior_report["aggregate"]["overall"] < oracle_report["aggregate"]["overall"]
+    assert (
+        oracle_report["aggregate"]["counterfactual_accuracy"]
+        > prior_report["aggregate"]["counterfactual_accuracy"]
+    )
+
+
+def test_state_cleared_ablation_loses_adversarial_state_use():
+    items = load_jsonl(ITEMS)
+    oracle_report = evaluate(items, [structured_state_oracle(item) for item in items])
+    cleared_report = evaluate(items, [state_cleared_ablation(item) for item in items])
+    assert (
+        oracle_report["by_split"]["VSTB-test-adversarial"]["overall"]
+        > cleared_report["by_split"]["VSTB-test-adversarial"]["overall"]
+    )

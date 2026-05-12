@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>drawer opened</title>
+<rect data-id="cabinet" x="210" y="150" width="370" height="160" rx="8" fill="#7f5539"/>
+<rect data-id="drawer" x="250" y="205" width="370" height="125" rx="8" fill="#9c6644"/>
+<circle data-id="handle" cx="435" cy="268" r="12" fill="#f1c453"/>
+</svg>
