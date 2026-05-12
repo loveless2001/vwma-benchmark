@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "name": "Perception Test",
+      "status": "active_seed",
+      "url": "https://github.com/google-deepmind/perception_test",
+      "license": "CC-BY-4.0 for materials; Apache-2.0 for code",
+      "usable_for": [
+        "real video frame pairs",
+        "object motion",
+        "memory/physics/counterfactual QA"
+      ],
+      "notes": "The sample split is small and easy to redistribute with attribution. Larger train/valid splits can be ingested by the same script pattern."
+    },
+    {
+      "name": "BridgeData V2",
+      "status": "candidate",
+      "url": "https://rail-berkeley.github.io/bridgedata/",
+      "license": "CC-BY-4.0",
+      "usable_for": [
+        "robot tabletop manipulation",
+        "pick/place object relocation",
+        "mug/container movement"
+      ],
+      "notes": "Good next source for mug_moved_public variants; requires a separate loader for trajectory format."
+    },
+    {
+      "name": "Ego4D",
+      "status": "license_gated_candidate",
+      "url": "https://ego4d-data.org/",
+      "license": "requires Ego4D license agreement and credentials",
+      "usable_for": [
+        "episodic memory",
+        "where-is-object queries",
+        "hand-object state changes"
+      ],
+      "notes": "Do not commit extracted frames until redistribution terms are reviewed for the signed license."
+    }
+  ]
+}

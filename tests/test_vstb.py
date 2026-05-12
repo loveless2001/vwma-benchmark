@@ -12,6 +12,8 @@ from vwma_benchmark.schema import load_jsonl, validate_dataset
 ROOT = Path(__file__).resolve().parents[1]
 ITEMS = ROOT / "data" / "vstb_v0_3_1" / "items.jsonl"
 FRAMES = ROOT / "data" / "vstb_v0_3_1"
+PUBLIC_ITEMS = ROOT / "data" / "public_corpus_vstb_v0_3_1" / "items.jsonl"
+PUBLIC_FRAMES = ROOT / "data" / "public_corpus_vstb_v0_3_1"
 
 
 def test_dataset_validates_and_covers_required_splits():
@@ -68,3 +70,17 @@ def test_state_cleared_ablation_loses_adversarial_state_use():
         oracle_report["by_split"]["VSTB-test-adversarial"]["overall"]
         > cleared_report["by_split"]["VSTB-test-adversarial"]["overall"]
     )
+
+
+def test_public_corpus_seed_split_has_provenance_and_frames():
+    items = load_jsonl(PUBLIC_ITEMS)
+    assert len(items) == 8
+    assert validate_dataset(items, PUBLIC_FRAMES) == []
+    assert {item["split"] for item in items} == {"VSTB-test-real-public"}
+    assert {item["scene_family"] for item in items} == {"object_moved_public"}
+    for item in items:
+        provenance = item["source_provenance"]
+        assert provenance["dataset"] == "Perception Test"
+        assert provenance["license"].startswith("CC-BY-4.0")
+        assert len(provenance["source_frames"]) == 2
+        assert all(frame.endswith(".jpg") for frame in item["frames"])

@@ -43,6 +43,15 @@ VALID_SPLITS = {
     "VSTB-dev-synth",
     "VSTB-test-synth",
     "VSTB-test-adversarial",
+    "VSTB-test-real",
+    "VSTB-test-real-public",
+}
+
+REQUIRED_SYNTHETIC_SPLITS = {
+    "VSTB-train-synth",
+    "VSTB-dev-synth",
+    "VSTB-test-synth",
+    "VSTB-test-adversarial",
 }
 
 
@@ -157,7 +166,8 @@ def validate_dataset(items: list[dict[str, Any]], frame_root: str | Path | None 
             for frame in item.get("frames", []):
                 if not (root / frame).exists():
                     errors.append(f"{item_id}: missing frame {frame}")
-    missing_splits = VALID_SPLITS - splits
-    if missing_splits:
-        errors.append(f"missing required evaluation splits: {sorted(missing_splits)}")
+    if splits & REQUIRED_SYNTHETIC_SPLITS:
+        missing_splits = REQUIRED_SYNTHETIC_SPLITS - splits
+        if missing_splits:
+            errors.append(f"missing required evaluation splits: {sorted(missing_splits)}")
     return errors

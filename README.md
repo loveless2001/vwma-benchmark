@@ -7,9 +7,11 @@ deltas, counterfactual state, hypotheses, provenance, and gates.
 
 The current synthetic benchmark is deterministic: 10 scenario families with 10
 variants each, for 100 items total. It is meant to validate the benchmark
-contract and runner before expanding into hand-photographed real-image variants.
-The harness accepts predictions from any model or agent as JSONL, so Modal GPU
-runs can be attached later without changing the scoring format.
+contract and runner before expanding into real-image variants. A small
+public-corpus real-frame seed split is included separately so SVG-specific
+failure claims can be checked against redistributable real video frames. The
+harness accepts predictions from any model or agent as JSONL, so Modal GPU runs
+can be attached later without changing the scoring format.
 
 ## Artifacts
 
@@ -18,8 +20,11 @@ runs can be attached later without changing the scoring format.
 - `data/vstb_v0_3_1/splits.json`: split manifest.
 - `data/vstb_v0_3_1/families.json`: 10-family manifest.
 - `data/real_vstb_v0_3_1/`: real-image intake directory.
+- `data/public_corpus_vstb_v0_3_1/`: public-corpus real-frame seed split with provenance.
 - `scripts/generate_vstb.py`: deterministic dataset generator.
 - `scripts/validate_dataset.py`: schema and frame-asset validator.
+- `scripts/prepare_public_corpus_vstb.py`: downloads public source samples and derives real-frame items.
+- `scripts/validate_public_corpus_manifest.py`: validates public-corpus frame provenance.
 - `scripts/run_baselines.py`: reference baselines and oracle controls.
 - `scripts/evaluate_predictions.py`: metric runner for JSONL predictions.
 - `docs/completion_audit.md`: spec-to-artifact completion audit.
@@ -41,6 +46,13 @@ python3 scripts/compare_reports.py \
   --no-gates-report runs/structured_state_no_gates_report.json \
   --output runs/required_deltas.json
 python3 -m pytest
+```
+
+Refresh the current public-corpus seed split with:
+
+```bash
+python3 scripts/prepare_public_corpus_vstb.py
+python3 scripts/validate_public_corpus_manifest.py
 ```
 
 After hand-photographed real-image labels are added, validate them with:
