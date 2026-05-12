@@ -1,13 +1,13 @@
 {
   "explanation_faithfulness": 1.0,
-  "fixed_model_delta": 0.7361538461538462,
-  "gate_use_delta": 0.18428205128205133,
+  "fixed_model_delta": 0.7430769230769231,
+  "gate_use_delta": 0.19120512820512825,
   "reports": {
     "base": "runs/base_model_prior_report.json",
     "no_gates": "runs/structured_state_no_gates_report.json",
     "state": "runs/oracle_report.json",
     "state_cleared": "runs/state_cleared_report.json"
   },
-  "state_use_delta": 0.5829487179487179,
+  "state_use_delta": 0.5898717948717949,
   "trust_allocation_error_rate": 0.0
 }

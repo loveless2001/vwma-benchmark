@@ -1,4 +1,5 @@
 from pathlib import Path
+from collections import Counter, defaultdict
 
 from vwma_benchmark.baselines import (
     base_model_prior,
@@ -30,6 +31,49 @@ def test_dataset_validates_and_covers_required_splits():
         by_family.setdefault(item["scene_family"], []).append(item)
     assert len(by_family) == 10
     assert {len(rows) for rows in by_family.values()} == {10}
+
+
+def test_family_and_split_balance_are_stable():
+    items = load_jsonl(ITEMS)
+    assert Counter(item["split"] for item in items) == {
+        "VSTB-train-synth": 10,
+        "VSTB-dev-synth": 10,
+        "VSTB-test-synth": 48,
+        "VSTB-test-adversarial": 32,
+    }
+    for family in {item["scene_family"] for item in items}:
+        rows = [item for item in items if item["scene_family"] == family]
+        counts = Counter(item["split"] for item in rows)
+        assert counts["VSTB-train-synth"] == 1
+        assert counts["VSTB-dev-synth"] == 1
+        assert counts["VSTB-test-synth"] in {0, 8}
+        assert counts["VSTB-test-adversarial"] in {0, 8}
+
+
+def test_no_frame_leakage_from_train_or_dev_to_test_splits():
+    items = load_jsonl(ITEMS)
+    by_frame = defaultdict(list)
+    for item in items:
+        for frame in item["frames"]:
+            by_frame[frame].append(item)
+
+    train_dev = {"VSTB-train-synth", "VSTB-dev-synth"}
+    test = {"VSTB-test-synth", "VSTB-test-adversarial"}
+    for frame, rows in by_frame.items():
+        splits = {row["split"] for row in rows}
+        assert not (splits & train_dev and splits & test), frame
+
+
+def test_no_gold_consequence_string_is_leaked_in_query_or_captions():
+    items = load_jsonl(ITEMS)
+    for item in items:
+        visible_text = " ".join(
+            [item["query"], *item.get("frame_captions", []), *item.get("history", [])]
+        ).lower()
+        for key in ("expected_physical_consequence", "hypothetical_consequence"):
+            value = str(item["labels"][key]).lower()
+            if value not in {"not_applicable", "unknown"}:
+                assert value not in visible_text, (item["item_id"], key, value)
 
 
 def test_benchmark_contains_required_adversarial_probes():

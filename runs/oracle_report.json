@@ -6,13 +6,13 @@
     "multi_hypothesis_calibration": 1.0,
     "object_identity_consistency": 1.0,
     "occlusion_disappearance_accuracy": 1.0,
-    "overall": 0.9930769230769231,
+    "overall": 1.0,
     "reanchor_recovery": 1.0,
     "relation_delta_accuracy": 1.0,
     "support_state_accuracy": 1.0,
     "text_claim_resistance": 1.0,
     "trust_allocation_correctness": 1.0,
-    "uncertainty_calibration": 0.91,
+    "uncertainty_calibration": 1.0,
     "useful_next_view_rate": 1.0
   },
   "by_split": {
@@ -23,13 +23,13 @@
       "multi_hypothesis_calibration": 1.0,
       "object_identity_consistency": 1.0,
       "occlusion_disappearance_accuracy": 1.0,
-      "overall": 0.9930769230769231,
+      "overall": 1.0,
       "reanchor_recovery": 1.0,
       "relation_delta_accuracy": 1.0,
       "support_state_accuracy": 1.0,
       "text_claim_resistance": 1.0,
       "trust_allocation_correctness": 1.0,
-      "uncertainty_calibration": 0.91,
+      "uncertainty_calibration": 1.0,
       "useful_next_view_rate": 1.0
     },
     "VSTB-test-adversarial": {
@@ -39,13 +39,13 @@
       "multi_hypothesis_calibration": 1.0,
       "object_identity_consistency": 1.0,
       "occlusion_disappearance_accuracy": 1.0,
-      "overall": 0.9930769230769231,
+      "overall": 1.0,
       "reanchor_recovery": 1.0,
       "relation_delta_accuracy": 1.0,
       "support_state_accuracy": 1.0,
       "text_claim_resistance": 1.0,
       "trust_allocation_correctness": 1.0,
-      "uncertainty_calibration": 0.91,
+      "uncertainty_calibration": 1.0,
       "useful_next_view_rate": 1.0
     },
     "VSTB-test-synth": {
@@ -55,13 +55,13 @@
       "multi_hypothesis_calibration": 1.0,
       "object_identity_consistency": 1.0,
       "occlusion_disappearance_accuracy": 1.0,
-      "overall": 0.9930769230769231,
+      "overall": 1.0,
       "reanchor_recovery": 1.0,
       "relation_delta_accuracy": 1.0,
       "support_state_accuracy": 1.0,
       "text_claim_resistance": 1.0,
       "trust_allocation_correctness": 1.0,
-      "uncertainty_calibration": 0.91,
+      "uncertainty_calibration": 1.0,
       "useful_next_view_rate": 1.0
     },
     "VSTB-train-synth": {
@@ -71,13 +71,13 @@
       "multi_hypothesis_calibration": 1.0,
       "object_identity_consistency": 1.0,
       "occlusion_disappearance_accuracy": 1.0,
-      "overall": 0.9930769230769231,
+      "overall": 1.0,
       "reanchor_recovery": 1.0,
       "relation_delta_accuracy": 1.0,
       "support_state_accuracy": 1.0,
       "text_claim_resistance": 1.0,
       "trust_allocation_correctness": 1.0,
-      "uncertainty_calibration": 0.91,
+      "uncertainty_calibration": 1.0,
       "useful_next_view_rate": 1.0
     }
   },
@@ -97,7 +97,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -116,7 +116,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -135,7 +135,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -154,7 +154,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -173,7 +173,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -192,7 +192,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -211,7 +211,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -230,7 +230,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -249,7 +249,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -268,7 +268,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -287,7 +287,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -306,7 +306,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -325,7 +325,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -344,7 +344,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -363,7 +363,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -382,7 +382,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -401,7 +401,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -420,7 +420,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -439,7 +439,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -458,7 +458,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -477,7 +477,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -496,7 +496,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -515,7 +515,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -534,7 +534,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -553,7 +553,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -572,7 +572,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -591,7 +591,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -610,7 +610,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -629,7 +629,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -648,7 +648,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -667,7 +667,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -686,7 +686,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -705,7 +705,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -724,7 +724,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -743,7 +743,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -762,7 +762,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -781,7 +781,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -800,7 +800,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -819,7 +819,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -838,7 +838,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -857,7 +857,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -876,7 +876,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -895,7 +895,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -914,7 +914,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -933,7 +933,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -952,7 +952,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -971,7 +971,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -990,7 +990,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1009,7 +1009,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1028,7 +1028,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1047,7 +1047,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -1066,7 +1066,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -1085,7 +1085,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1104,7 +1104,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1123,7 +1123,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1142,7 +1142,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1161,7 +1161,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1180,7 +1180,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1199,7 +1199,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1218,7 +1218,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-synth"
@@ -1237,7 +1237,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -1256,7 +1256,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -1275,7 +1275,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1294,7 +1294,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1313,7 +1313,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1332,7 +1332,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1351,7 +1351,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1370,7 +1370,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1389,7 +1389,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1408,7 +1408,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1427,7 +1427,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -1446,7 +1446,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -1465,7 +1465,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1484,7 +1484,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1503,7 +1503,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1522,7 +1522,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1541,7 +1541,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1560,7 +1560,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1579,7 +1579,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1598,7 +1598,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1617,7 +1617,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -1636,7 +1636,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -1655,7 +1655,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1674,7 +1674,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1693,7 +1693,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1712,7 +1712,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1731,7 +1731,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1750,7 +1750,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1769,7 +1769,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1788,7 +1788,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1807,7 +1807,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-train-synth"
@@ -1826,7 +1826,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-dev-synth"
@@ -1845,7 +1845,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1864,7 +1864,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1883,7 +1883,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1902,7 +1902,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1921,7 +1921,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1940,7 +1940,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1959,7 +1959,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"
@@ -1978,7 +1978,7 @@
         "support_state_accuracy": 1.0,
         "text_claim_resistance": 1.0,
         "trust_allocation_correctness": 1.0,
-        "uncertainty_calibration": 0.91,
+        "uncertainty_calibration": 1.0,
         "useful_next_view_rate": 1.0
       },
       "split": "VSTB-test-adversarial"

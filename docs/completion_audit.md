@@ -25,7 +25,7 @@ baselines, and scoring remain local and deterministic.
 | Visible frame artifacts | `data/vstb_v0_3_1/frames/*.svg` contains generated frame assets for all 100 items. |
 | Real-image extension path | `docs/real_image_capture_protocol.md`, `data/real_vstb_v0_3_1/README.md`, and `scripts/validate_real_image_manifest.py` define the intake gate for 30 hand-photographed variants. |
 | Reproducible generation and validation | `python3 scripts/generate_vstb.py` regenerates data; `python3 scripts/validate_dataset.py` validates schema and frame paths. |
-| Tests | `python3 -m pytest` passes 4 tests covering validation, adversarial probes, oracle-vs-prior gap, and B_t-cleared degradation. |
+| Tests | `python3 -m pytest` passes 8 tests covering validation, adversarial probes, split/family balance, no train/dev-to-test frame leakage, no visible gold-consequence leakage, public-corpus provenance, oracle-vs-prior gap, and B_t-cleared degradation. |
 
 ## Verification Snapshot
 
@@ -49,11 +49,11 @@ python3 -m pytest
 Observed verification results:
 
 - Dataset validation passed.
-- Oracle overall score: `0.9930769230769231`.
+- Oracle overall score: `1.0`.
 - Base-model-prior overall score: `0.2569230769230769`.
 - State-cleared overall score: `0.41012820512820514`.
 - Structured-state-no-gates overall score: `0.8087948717948718`.
-- Required deltas: fixed-model `0.7361538461538462`, state-use `0.5829487179487179`, gate-use `0.18428205128205133`.
+- Required deltas: fixed-model `0.7430769230769231`, state-use `0.5898717948717949`, gate-use `0.19120512820512825`.
 - Tests: `4 passed`.
 
 ## Known Scope Boundary

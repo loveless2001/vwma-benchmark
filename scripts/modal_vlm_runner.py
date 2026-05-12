@@ -21,6 +21,7 @@ APP_NAME = "vwma-vlm-baseline"
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data" / "vstb_v0_3_1"
 RUNS_DIR = ROOT / "runs"
+PROMPT_VARIANTS = {"json_schema", "state_strict", "adversarial_strict"}
 
 
 image = (
@@ -34,6 +35,7 @@ image = (
         "sentencepiece>=0.2.0",
         "protobuf>=5.28.0",
         "qwen-vl-utils>=0.0.8",
+        "autoawq==0.2.7",
         "einops>=0.8.0",
         "timm>=1.0.0",
     )
@@ -165,8 +167,48 @@ def normalize_prediction(item: dict[str, Any], raw: str, model_id: str) -> dict[
     }
 
 
-@app.function(gpu="L4", timeout=60 * 40, volumes={"/cache": modal.Volume.from_name("vwma-hf-cache", create_if_missing=True)})
-def run_vlm_remote(items: list[dict[str, Any]], model_id: str, max_new_tokens: int = 220) -> list[dict[str, Any]]:
+def build_prompt(item: dict[str, Any], prompt_variant: str) -> str:
+    base = f"""User query: {item["query"]}
+
+Return only compact JSON:
+{{
+  "answer": "...",
+  "object_status": {{}},
+  "relation_delta": [],
+  "support_state_after_hypothetical": "supported|unsupported|constrained|not_applicable|unknown",
+  "hypothetical_consequence": "...",
+  "expected_physical_consequence": "stable_or_minor_motion|falls_or_swings|hangs_or_swings_not_free_fall|not_applicable|unknown",
+  "event_order": [],
+  "hypotheses": [],
+  "confidence": 0.0,
+  "next_view_request": {{"target_uncertainty": "unknown"}},
+  "explanation_refs": ["image"],
+  "trust_allocation": "prior_over_state"
+}}"""
+    if prompt_variant == "json_schema":
+        return f"""This is a visual question answering task over one or more ordered frames.
+Answer from the images. If the image is too abstract, say what you can see and use unknown for uncertain fields.
+
+{base}"""
+    if prompt_variant == "state_strict":
+        return f"""You are evaluating ordered frames in a visual state-transition benchmark.
+Track objects, support relations, occlusion, and event order. Do not infer a hidden state from common sense if the frame/history does not support it.
+
+{base}"""
+    if prompt_variant == "adversarial_strict":
+        return f"""You are evaluating adversarial visual state questions.
+Some prompts contain false user claims, identity swaps, or final frames that are visually identical but have different histories. Prefer visual/history provenance over the user's wording.
+
+{base}"""
+    raise ValueError(f"unknown prompt variant: {prompt_variant}")
+
+
+def run_vlm_items(
+    items: list[dict[str, Any]],
+    model_id: str,
+    max_new_tokens: int = 220,
+    prompt_variant: str = "json_schema",
+) -> list[dict[str, Any]]:
     import torch
     from PIL import Image, ImageColor, ImageDraw
     from transformers import AutoModel, AutoModelForImageTextToText, AutoProcessor, AutoTokenizer
@@ -209,26 +251,7 @@ def run_vlm_remote(items: list[dict[str, Any]], model_id: str, max_new_tokens: i
     decoded_items = []
     for item in items:
         images = [svg_to_image(svg) for svg in item["frame_svgs"]]
-        prompt = f"""This is a visual question answering task over one or more ordered frames.
-Answer from the images. If the image is too abstract, say what you can see and use unknown for uncertain fields.
-
-User query: {item["query"]}
-
-Return only compact JSON:
-{{
-  "answer": "...",
-  "object_status": {{}},
-  "relation_delta": [],
-  "support_state_after_hypothetical": "supported|unsupported|constrained|not_applicable|unknown",
-  "hypothetical_consequence": "...",
-  "expected_physical_consequence": "stable_or_minor_motion|falls_or_swings|hangs_or_swings_not_free_fall|not_applicable|unknown",
-  "event_order": [],
-  "hypotheses": [],
-  "confidence": 0.0,
-  "next_view_request": {{"target_uncertainty": "unknown"}},
-  "explanation_refs": ["image"],
-  "trust_allocation": "prior_over_state"
-}}"""
+        prompt = build_prompt(item, prompt_variant)
         content: list[dict[str, Any]] = []
         for idx in range(len(images)):
             content.append({"type": "text", "text": f"Frame {idx + 1}:"})
@@ -277,7 +300,9 @@ Return only compact JSON:
                 )
             except TypeError:
                 raw = model.chat(tokenizer, pixel_values, question, generation_config)
-            predictions.append(normalize_prediction(item, raw.strip(), model_id))
+            pred = normalize_prediction(item, raw.strip(), model_id)
+            pred["prompt_variant"] = prompt_variant
+            predictions.append(pred)
         return predictions
 
     processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir, trust_remote_code=True)
@@ -302,17 +327,50 @@ Return only compact JSON:
         if "input_ids" in inputs:
             generated = generated[:, inputs["input_ids"].shape[-1] :]
         raw = processor.batch_decode(generated, skip_special_tokens=True)[0].strip()
-        predictions.append(normalize_prediction(item, raw, model_id))
+        pred = normalize_prediction(item, raw, model_id)
+        pred["prompt_variant"] = prompt_variant
+        predictions.append(pred)
     return predictions
 
 
+@app.function(gpu="L4", timeout=60 * 40, volumes={"/cache": modal.Volume.from_name("vwma-hf-cache", create_if_missing=True)})
+def run_vlm_remote(
+    items: list[dict[str, Any]],
+    model_id: str,
+    max_new_tokens: int = 220,
+    prompt_variant: str = "json_schema",
+) -> list[dict[str, Any]]:
+    return run_vlm_items(items, model_id, max_new_tokens=max_new_tokens, prompt_variant=prompt_variant)
+
+
+@app.function(gpu="H100", timeout=60 * 180, volumes={"/cache": modal.Volume.from_name("vwma-hf-cache", create_if_missing=True)})
+def run_vlm_remote_h100(
+    items: list[dict[str, Any]],
+    model_id: str,
+    max_new_tokens: int = 220,
+    prompt_variant: str = "json_schema",
+) -> list[dict[str, Any]]:
+    return run_vlm_items(items, model_id, max_new_tokens=max_new_tokens, prompt_variant=prompt_variant)
+
+
 @app.local_entrypoint()
-def main(model_id: str = "HuggingFaceTB/SmolVLM-256M-Instruct", limit: int = 4, split: str = "", max_new_tokens: int = 220):
+def main(
+    model_id: str = "HuggingFaceTB/SmolVLM-256M-Instruct",
+    limit: int = 4,
+    split: str = "",
+    max_new_tokens: int = 220,
+    prompt_variant: str = "json_schema",
+    gpu_tier: str = "L4",
+):
+    if prompt_variant not in PROMPT_VARIANTS:
+        raise ValueError(f"prompt_variant must be one of {sorted(PROMPT_VARIANTS)}")
     items = load_items(limit=limit if limit > 0 else None, split=split or None)
     payload = encode_assets(items)
     slug = re.sub(r"[^A-Za-z0-9_.-]+", "_", model_id).strip("_")
-    out_path = RUNS_DIR / f"real_vlm_{slug}_limit{len(items)}.jsonl"
-    predictions = run_vlm_remote.remote(payload, model_id, max_new_tokens=max_new_tokens)
+    prompt_slug = re.sub(r"[^A-Za-z0-9_.-]+", "_", prompt_variant).strip("_")
+    out_path = RUNS_DIR / f"real_vlm_{slug}_{prompt_slug}_limit{len(items)}.jsonl"
+    remote_fn = run_vlm_remote_h100 if gpu_tier.upper() == "H100" else run_vlm_remote
+    predictions = remote_fn.remote(payload, model_id, max_new_tokens=max_new_tokens, prompt_variant=prompt_variant)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8") as handle:
         for row in predictions:

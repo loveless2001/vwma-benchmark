@@ -92,7 +92,7 @@ def structured_state_oracle(item: dict[str, Any]) -> dict[str, Any]:
         "event_order": labels["event_order"],
         "identity_map": labels.get("identity_map", {}),
         "hypotheses": labels.get("hypotheses", []),
-        "confidence": 0.91,
+        "confidence": 1.0,
         "next_view_request": {
             "target_uncertainty": labels["best_next_observation"]["target_uncertainty"]
         },

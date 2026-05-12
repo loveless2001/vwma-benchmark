@@ -1,0 +1,182 @@
+{
+  "best_by_model": {
+    "OpenGVLab_InternVL2_5-8B": {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "OpenGVLab_InternVL2_5-8B",
+      "overall": 0.2821153846153846,
+      "prompt_variant": "adversarial_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_OpenGVLab_InternVL2_5-8B_adversarial_strict_limit100_report.json",
+      "support_state_accuracy": 0.13,
+      "text_claim_resistance": 0.96
+    },
+    "Qwen_Qwen2.5-VL-72B-Instruct-AWQ": {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-72B-Instruct-AWQ",
+      "overall": 0.2931153846153846,
+      "prompt_variant": "adversarial_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-72B-Instruct-AWQ_adversarial_strict_limit100_report.json",
+      "support_state_accuracy": 0.37,
+      "text_claim_resistance": 0.98
+    },
+    "Qwen_Qwen2.5-VL-7B-Instruct": {
+      "counterfactual_accuracy": 0.12,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-7B-Instruct",
+      "overall": 0.2937692307692308,
+      "prompt_variant": "json_schema",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_json_schema_limit100_report.json",
+      "support_state_accuracy": 0.06,
+      "text_claim_resistance": 0.98
+    },
+    "llava-hf_llava-onevision-qwen2-7b-ov-hf": {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "llava-hf_llava-onevision-qwen2-7b-ov-hf",
+      "overall": 0.2826923076923077,
+      "prompt_variant": "state_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_state_strict_limit100_report.json",
+      "support_state_accuracy": 0.06,
+      "text_claim_resistance": 1.0
+    }
+  },
+  "rows": [
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "OpenGVLab_InternVL2_5-8B",
+      "overall": 0.2821153846153846,
+      "prompt_variant": "adversarial_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_OpenGVLab_InternVL2_5-8B_adversarial_strict_limit100_report.json",
+      "support_state_accuracy": 0.13,
+      "text_claim_resistance": 0.96
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "OpenGVLab_InternVL2_5-8B",
+      "overall": 0.2781153846153846,
+      "prompt_variant": "json_schema",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_OpenGVLab_InternVL2_5-8B_json_schema_limit100_report.json",
+      "support_state_accuracy": 0.12,
+      "text_claim_resistance": 0.97
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "OpenGVLab_InternVL2_5-8B",
+      "overall": 0.27792307692307694,
+      "prompt_variant": "state_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_OpenGVLab_InternVL2_5-8B_state_strict_limit100_report.json",
+      "support_state_accuracy": 0.11,
+      "text_claim_resistance": 0.96
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-72B-Instruct-AWQ",
+      "overall": 0.2931153846153846,
+      "prompt_variant": "adversarial_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-72B-Instruct-AWQ_adversarial_strict_limit100_report.json",
+      "support_state_accuracy": 0.37,
+      "text_claim_resistance": 0.98
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-72B-Instruct-AWQ",
+      "overall": 0.27353846153846156,
+      "prompt_variant": "json_schema",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-72B-Instruct-AWQ_json_schema_limit100_report.json",
+      "support_state_accuracy": 0.39,
+      "text_claim_resistance": 0.98
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-72B-Instruct-AWQ",
+      "overall": 0.26453846153846156,
+      "prompt_variant": "state_strict",
+      "relation_delta_accuracy": 0.05,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-72B-Instruct-AWQ_state_strict_limit100_report.json",
+      "support_state_accuracy": 0.2,
+      "text_claim_resistance": 0.98
+    },
+    {
+      "counterfactual_accuracy": 0.07,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-7B-Instruct",
+      "overall": 0.2772307692307692,
+      "prompt_variant": "adversarial_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_adversarial_strict_limit100_report.json",
+      "support_state_accuracy": 0.07,
+      "text_claim_resistance": 0.97
+    },
+    {
+      "counterfactual_accuracy": 0.12,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-7B-Instruct",
+      "overall": 0.2937692307692308,
+      "prompt_variant": "json_schema",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_json_schema_limit100_report.json",
+      "support_state_accuracy": 0.06,
+      "text_claim_resistance": 0.98
+    },
+    {
+      "counterfactual_accuracy": 0.1,
+      "item_count": 100,
+      "model": "Qwen_Qwen2.5-VL-7B-Instruct",
+      "overall": 0.2903076923076923,
+      "prompt_variant": "state_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_state_strict_limit100_report.json",
+      "support_state_accuracy": 0.22,
+      "text_claim_resistance": 0.96
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "llava-hf_llava-onevision-qwen2-7b-ov-hf",
+      "overall": 0.28076923076923077,
+      "prompt_variant": "adversarial_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_adversarial_strict_limit100_report.json",
+      "support_state_accuracy": 0.07,
+      "text_claim_resistance": 1.0
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "llava-hf_llava-onevision-qwen2-7b-ov-hf",
+      "overall": 0.27692307692307694,
+      "prompt_variant": "json_schema",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_json_schema_limit100_report.json",
+      "support_state_accuracy": 0.06,
+      "text_claim_resistance": 1.0
+    },
+    {
+      "counterfactual_accuracy": 0.0,
+      "item_count": 100,
+      "model": "llava-hf_llava-onevision-qwen2-7b-ov-hf",
+      "overall": 0.2826923076923077,
+      "prompt_variant": "state_strict",
+      "relation_delta_accuracy": 0.1,
+      "report": "runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_state_strict_limit100_report.json",
+      "support_state_accuracy": 0.06,
+      "text_claim_resistance": 1.0
+    }
+  ]
+}
