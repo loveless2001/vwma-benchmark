@@ -1,0 +1,162 @@
+[
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_cable_relation_000",
+      "vstb_cable_relation_001",
+      "vstb_cable_relation_002",
+      "vstb_cable_relation_003",
+      "vstb_cable_relation_004",
+      "vstb_cable_relation_005",
+      "vstb_cable_relation_006",
+      "vstb_cable_relation_007",
+      "vstb_cable_relation_008",
+      "vstb_cable_relation_009"
+    ],
+    "scene_family": "cable_relation"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_camera_motion_000",
+      "vstb_camera_motion_001",
+      "vstb_camera_motion_002",
+      "vstb_camera_motion_003",
+      "vstb_camera_motion_004",
+      "vstb_camera_motion_005",
+      "vstb_camera_motion_006",
+      "vstb_camera_motion_007",
+      "vstb_camera_motion_008",
+      "vstb_camera_motion_009"
+    ],
+    "scene_family": "camera_motion"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_drawer_state_000",
+      "vstb_drawer_state_001",
+      "vstb_drawer_state_002",
+      "vstb_drawer_state_003",
+      "vstb_drawer_state_004",
+      "vstb_drawer_state_005",
+      "vstb_drawer_state_006",
+      "vstb_drawer_state_007",
+      "vstb_drawer_state_008",
+      "vstb_drawer_state_009"
+    ],
+    "scene_family": "drawer_state"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_false_claim_000",
+      "vstb_false_claim_001",
+      "vstb_false_claim_002",
+      "vstb_false_claim_003",
+      "vstb_false_claim_004",
+      "vstb_false_claim_005",
+      "vstb_false_claim_006",
+      "vstb_false_claim_007",
+      "vstb_false_claim_008",
+      "vstb_false_claim_009"
+    ],
+    "scene_family": "false_claim"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_frame_identical_history_000",
+      "vstb_frame_identical_history_001",
+      "vstb_frame_identical_history_002",
+      "vstb_frame_identical_history_003",
+      "vstb_frame_identical_history_004",
+      "vstb_frame_identical_history_005",
+      "vstb_frame_identical_history_006",
+      "vstb_frame_identical_history_007",
+      "vstb_frame_identical_history_008",
+      "vstb_frame_identical_history_009"
+    ],
+    "scene_family": "frame_identical_history"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_keys_occlusion_000",
+      "vstb_keys_occlusion_001",
+      "vstb_keys_occlusion_002",
+      "vstb_keys_occlusion_003",
+      "vstb_keys_occlusion_004",
+      "vstb_keys_occlusion_005",
+      "vstb_keys_occlusion_006",
+      "vstb_keys_occlusion_007",
+      "vstb_keys_occlusion_008",
+      "vstb_keys_occlusion_009"
+    ],
+    "scene_family": "keys_occlusion"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_mug_moved_000",
+      "vstb_mug_moved_001",
+      "vstb_mug_moved_002",
+      "vstb_mug_moved_003",
+      "vstb_mug_moved_004",
+      "vstb_mug_moved_005",
+      "vstb_mug_moved_006",
+      "vstb_mug_moved_007",
+      "vstb_mug_moved_008",
+      "vstb_mug_moved_009"
+    ],
+    "scene_family": "mug_moved"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_pen_release_000",
+      "vstb_pen_release_001",
+      "vstb_pen_release_002",
+      "vstb_pen_release_003",
+      "vstb_pen_release_004",
+      "vstb_pen_release_005",
+      "vstb_pen_release_006",
+      "vstb_pen_release_007",
+      "vstb_pen_release_008",
+      "vstb_pen_release_009"
+    ],
+    "scene_family": "pen_release"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_similar_swap_000",
+      "vstb_similar_swap_001",
+      "vstb_similar_swap_002",
+      "vstb_similar_swap_003",
+      "vstb_similar_swap_004",
+      "vstb_similar_swap_005",
+      "vstb_similar_swap_006",
+      "vstb_similar_swap_007",
+      "vstb_similar_swap_008",
+      "vstb_similar_swap_009"
+    ],
+    "scene_family": "similar_swap"
+  },
+  {
+    "item_count": 10,
+    "item_ids": [
+      "vstb_string_attached_000",
+      "vstb_string_attached_001",
+      "vstb_string_attached_002",
+      "vstb_string_attached_003",
+      "vstb_string_attached_004",
+      "vstb_string_attached_005",
+      "vstb_string_attached_006",
+      "vstb_string_attached_007",
+      "vstb_string_attached_008",
+      "vstb_string_attached_009"
+    ],
+    "scene_family": "string_attached"
+  }
+]

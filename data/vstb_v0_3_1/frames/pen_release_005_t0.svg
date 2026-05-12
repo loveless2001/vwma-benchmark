@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>pen support before release</title>
+<rect data-id="left_hand" x="100" y="222" width="145" height="42" rx="8" fill="#c79a65"/>
+<rect data-id="right_hand" x="530" y="222" width="145" height="42" rx="8" fill="#c79a65"/>
+<rect data-id="pen" x="230" y="240" width="340" height="14" rx="4" fill="#0f766e"/>
+</svg>

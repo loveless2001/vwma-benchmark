@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>cable relation changed</title>
+<rect data-id="socket" x="555" y="175" width="70" height="70" rx="8" fill="#d9d9d9"/>
+<line data-id="cable" x1="150" y1="210" x2="505" y2="272" stroke="#111827" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -28,12 +28,14 @@ image = (
     .pip_install(
         "torch>=2.5.0",
         "torchvision>=0.20.0",
-        "transformers>=4.53.0",
+        "transformers==4.49.0",
         "accelerate>=1.2.0",
         "pillow>=10.4.0",
         "sentencepiece>=0.2.0",
         "protobuf>=5.28.0",
         "qwen-vl-utils>=0.0.8",
+        "einops>=0.8.0",
+        "timm>=1.0.0",
     )
 )
 app = modal.App(APP_NAME, image=image)
@@ -167,7 +169,7 @@ def normalize_prediction(item: dict[str, Any], raw: str, model_id: str) -> dict[
 def run_vlm_remote(items: list[dict[str, Any]], model_id: str, max_new_tokens: int = 220) -> list[dict[str, Any]]:
     import torch
     from PIL import Image, ImageColor, ImageDraw
-    from transformers import AutoModelForImageTextToText, AutoProcessor
+    from transformers import AutoModel, AutoModelForImageTextToText, AutoProcessor, AutoTokenizer
 
     def svg_to_image(encoded_svg: str) -> Image.Image:
         raw = base64.b64decode(encoded_svg)
@@ -203,17 +205,8 @@ def run_vlm_remote(items: list[dict[str, Any]], model_id: str, max_new_tokens: i
                 )
         return image
 
-    cache_dir = "/cache/huggingface"
-    processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir, trust_remote_code=True)
-    model = AutoModelForImageTextToText.from_pretrained(
-        model_id,
-        cache_dir=cache_dir,
-        torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
-        device_map="auto",
-        trust_remote_code=True,
-    )
-
     predictions: list[dict[str, Any]] = []
+    decoded_items = []
     for item in items:
         images = [svg_to_image(svg) for svg in item["frame_svgs"]]
         prompt = f"""This is a visual question answering task over one or more ordered frames.
@@ -241,6 +234,62 @@ Return only compact JSON:
             content.append({"type": "text", "text": f"Frame {idx + 1}:"})
             content.append({"type": "image"})
         content.append({"type": "text", "text": prompt})
+        decoded_items.append((item, images, prompt, content))
+
+    cache_dir = "/cache/huggingface"
+    if "InternVL" in model_id:
+        from torchvision import transforms
+        from torchvision.transforms.functional import InterpolationMode
+
+        normalize = transforms.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+        transform = transforms.Compose(
+            [
+                transforms.Resize((448, 448), interpolation=InterpolationMode.BICUBIC),
+                transforms.ToTensor(),
+                normalize,
+            ]
+        )
+        model = (
+            AutoModel.from_pretrained(
+                model_id,
+                cache_dir=cache_dir,
+                torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+                low_cpu_mem_usage=True,
+                trust_remote_code=True,
+                use_flash_attn=False,
+            )
+            .eval()
+            .cuda()
+        )
+        tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=cache_dir, trust_remote_code=True, use_fast=False)
+        generation_config = {"max_new_tokens": max_new_tokens, "do_sample": False}
+        for item, images, prompt, _content in decoded_items:
+            pixel_values = torch.stack([transform(image) for image in images]).to(torch.bfloat16).cuda()
+            image_prefix = "\n".join(f"Frame {idx + 1}: <image>" for idx in range(len(images)))
+            question = f"{image_prefix}\n{prompt}"
+            try:
+                raw = model.chat(
+                    tokenizer,
+                    pixel_values,
+                    question,
+                    generation_config,
+                    num_patches_list=[1] * len(images),
+                )
+            except TypeError:
+                raw = model.chat(tokenizer, pixel_values, question, generation_config)
+            predictions.append(normalize_prediction(item, raw.strip(), model_id))
+        return predictions
+
+    processor = AutoProcessor.from_pretrained(model_id, cache_dir=cache_dir, trust_remote_code=True)
+    model = AutoModelForImageTextToText.from_pretrained(
+        model_id,
+        cache_dir=cache_dir,
+        torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+        device_map="auto",
+        trust_remote_code=True,
+    )
+
+    for item, images, prompt, content in decoded_items:
         messages = [{"role": "user", "content": content}]
         try:
             text = processor.apply_chat_template(messages, add_generation_prompt=True)

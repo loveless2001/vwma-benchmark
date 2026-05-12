@@ -1,12 +1,13 @@
 # VWMA Visual State Transition Benchmark
 
-This repository is a seed benchmark package for the Visual World-Model Adapter
+This repository is a benchmark package for the Visual World-Model Adapter
 (VWMA) spec v0.3.1-alpha. It tests whether a fixed frozen LLM/VLM improves when
 current-world belief is moved into an external mutable world state with typed
 deltas, counterfactual state, hypotheses, provenance, and gates.
 
-The initial benchmark is synthetic and deterministic. It is meant to validate
-the benchmark contract and runner before spending GPU time on model inference.
+The current synthetic benchmark is deterministic: 10 scenario families with 10
+variants each, for 100 items total. It is meant to validate the benchmark
+contract and runner before expanding into hand-photographed real-image variants.
 The harness accepts predictions from any model or agent as JSONL, so Modal GPU
 runs can be attached later without changing the scoring format.
 
@@ -15,6 +16,8 @@ runs can be attached later without changing the scoring format.
 - `data/vstb_v0_3_1/items.jsonl`: benchmark items and gold labels.
 - `data/vstb_v0_3_1/frames/*.svg`: simple visual frame assets.
 - `data/vstb_v0_3_1/splits.json`: split manifest.
+- `data/vstb_v0_3_1/families.json`: 10-family manifest.
+- `data/real_vstb_v0_3_1/`: real-image intake directory.
 - `scripts/generate_vstb.py`: deterministic dataset generator.
 - `scripts/validate_dataset.py`: schema and frame-asset validator.
 - `scripts/run_baselines.py`: reference baselines and oracle controls.
@@ -22,6 +25,7 @@ runs can be attached later without changing the scoring format.
 - `docs/completion_audit.md`: spec-to-artifact completion audit.
 - `scripts/modal_vlm_runner.py`: Modal GPU runner for open-weight VLM baselines.
 - `docs/real_vlm_modal_results.md`: scored real-VLM baseline results.
+- `docs/real_image_capture_protocol.md`: capture and labeling protocol for real photos.
 
 ## Run
 
@@ -37,6 +41,12 @@ python3 scripts/compare_reports.py \
   --no-gates-report runs/structured_state_no_gates_report.json \
   --output runs/required_deltas.json
 python3 -m pytest
+```
+
+After hand-photographed real-image labels are added, validate them with:
+
+```bash
+python3 scripts/validate_real_image_manifest.py --strict-count
 ```
 
 ## Prediction Format

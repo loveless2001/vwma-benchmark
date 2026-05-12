@@ -16,13 +16,18 @@ FRAMES = ROOT / "data" / "vstb_v0_3_1"
 
 def test_dataset_validates_and_covers_required_splits():
     items = load_jsonl(ITEMS)
-    assert len(items) == 13
+    assert len(items) == 100
     assert validate_dataset(items, FRAMES) == []
     splits = {item["split"] for item in items}
     assert "VSTB-train-synth" in splits
     assert "VSTB-dev-synth" in splits
     assert "VSTB-test-synth" in splits
     assert "VSTB-test-adversarial" in splits
+    by_family = {}
+    for item in items:
+        by_family.setdefault(item["scene_family"], []).append(item)
+    assert len(by_family) == 10
+    assert {len(rows) for rows in by_family.values()} == {10}
 
 
 def test_benchmark_contains_required_adversarial_probes():
@@ -31,15 +36,16 @@ def test_benchmark_contains_required_adversarial_probes():
     assert "frame_identical_pair" in tags
     assert "provenance_corruption" in tags
     assert "false_user_claim" in tags
-    assert "depth_stress" in tags
     assert "identity_swap" in tags
     pair = [item for item in items if "frame_identical_pair" in item["adversarial_tags"]]
-    assert len(pair) == 2
-    assert pair[0]["frames"][-1] == pair[1]["frames"][-1]
-    assert (
-        pair[0]["labels"]["expected_physical_consequence"]
-        != pair[1]["labels"]["expected_physical_consequence"]
-    )
+    assert len(pair) == 10
+    by_final = {}
+    for item in pair:
+        by_final.setdefault(item["frames"][-1], []).append(item)
+    assert len(by_final) == 5
+    for rows in by_final.values():
+        assert len(rows) == 2
+        assert rows[0]["labels"]["expected_physical_consequence"] != rows[1]["labels"]["expected_physical_consequence"]
 
 
 def test_oracle_scores_above_prior_baseline():

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>camera view after pan</title>
+<rect data-id="cup" x="231" y="230" width="82" height="82" rx="8" fill="#e4572e"/>
+<rect data-id="background_mark" x="-29" y="95" width="45" height="45" rx="8" fill="#64748b"/>
+</svg>

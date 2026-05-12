@@ -2,72 +2,86 @@
 
 Date: 2026-05-12
 
-This pass used Modal GPU inference to run two real open-weight VLMs against the
-13-item VSTB seed set:
-
-- `HuggingFaceTB/SmolVLM-256M-Instruct`
-- `Qwen/Qwen2.5-VL-3B-Instruct`
-
-The models were run as direct image+query baselines. They were not given gold
-state labels. The runner rendered the benchmark SVG frame assets to PIL images
-inside Modal, prompted each model for compact JSON, normalized raw model output
-into the benchmark prediction schema, and scored the predictions with
+This pass used Modal GPU inference on the 100-item synthetic VSTB set. The
+models were run as direct image+query baselines. They were not given gold state
+labels. The runner rendered SVG frame assets to PIL images inside Modal, prompted
+each model for compact JSON, normalized raw model output into the benchmark
+prediction schema, and scored the predictions with
 `scripts/evaluate_predictions.py`.
+
+## Completed 100-Item Runs
+
+| Runner | Overall | Counterfactual | Support | Relation Delta | Text Claim Resistance |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `Qwen/Qwen2.5-VL-7B-Instruct` | 0.2912 | 0.1200 | 0.0600 | 0.1000 | 0.9800 |
+| `llava-hf/llava-onevision-qwen2-7b-ov-hf` | 0.2635 | 0.0100 | 0.1700 | 0.1000 | 0.9600 |
+| `OpenGVLab/InternVL2_5-8B` | 0.2781 | 0.0000 | 0.1200 | 0.1000 | 0.9700 |
+| Base prior reference | 0.2569 | 0.0000 | 0.0600 | 0.1000 | 0.9000 |
+| Structured-state oracle | 0.9931 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
 
 ## Commands
 
 ```bash
 modal run scripts/modal_vlm_runner.py \
-  --model-id HuggingFaceTB/SmolVLM-256M-Instruct \
+  --model-id Qwen/Qwen2.5-VL-7B-Instruct \
+  --limit 0 \
+  --max-new-tokens 320
+
+python3 scripts/evaluate_predictions.py \
+  --predictions runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_limit100.jsonl \
+  --output runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_limit100_report.json
+
+modal run scripts/modal_vlm_runner.py \
+  --model-id llava-hf/llava-onevision-qwen2-7b-ov-hf \
+  --limit 0 \
+  --max-new-tokens 320
+
+python3 scripts/evaluate_predictions.py \
+  --predictions runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_limit100.jsonl \
+  --output runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_limit100_report.json
+
+modal run scripts/modal_vlm_runner.py \
+  --model-id OpenGVLab/InternVL2_5-8B \
   --limit 0 \
   --max-new-tokens 220
 
 python3 scripts/evaluate_predictions.py \
-  --predictions runs/real_vlm_HuggingFaceTB_SmolVLM-256M-Instruct_limit13.jsonl \
-  --output runs/real_vlm_HuggingFaceTB_SmolVLM-256M-Instruct_limit13_report.json
-
-modal run scripts/modal_vlm_runner.py \
-  --model-id Qwen/Qwen2.5-VL-3B-Instruct \
-  --limit 0 \
-  --max-new-tokens 420
-
-python3 scripts/evaluate_predictions.py \
-  --predictions runs/real_vlm_Qwen_Qwen2.5-VL-3B-Instruct_limit13.jsonl \
-  --output runs/real_vlm_Qwen_Qwen2.5-VL-3B-Instruct_limit13_report.json
+  --predictions runs/real_vlm_OpenGVLab_InternVL2_5-8B_limit100.jsonl \
+  --output runs/real_vlm_OpenGVLab_InternVL2_5-8B_limit100_report.json
 ```
 
-## Aggregate Scores
+## Runner Notes
 
-| Runner | Overall | Counterfactual | Support | Relation Delta | Text Claim Resistance |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| SmolVLM-256M-Instruct | 0.2811 | 0.0000 | 0.0769 | 0.1538 | 1.0000 |
-| Qwen2.5-VL-3B-Instruct | 0.2568 | 0.0000 | 0.1538 | 0.1538 | 0.9231 |
-| Base prior reference | 0.2600 | 0.0000 | 0.0000 | 0.1538 | 0.9231 |
-| Structured-state oracle | 0.9931 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+- Qwen2.5-VL and LLaVA-OneVision use the generic
+  `AutoModelForImageTextToText` path.
+- InternVL2.5-8B requires its custom `AutoModel` + `model.chat` path. The Modal
+  image pins `transformers==4.49.0` and includes `einops` and `timm` for the
+  remote-code loader.
+- `Qwen/Qwen2.5-VL-72B-Instruct` remains a separate heavier run. A practical
+  path should use a quantized 72B checkpoint, such as
+  `Qwen/Qwen2.5-VL-72B-Instruct-AWQ`, on larger GPU hardware rather than the
+  current L4/H100 single-model BF16 path.
 
 ## Observations
 
-- SmolVLM produced short free-form answers rather than strict JSON, but it did
-  answer some visual questions directly. Example: it correctly said the cable
-  was not plugged in, but it did not emit typed deltas.
-- Qwen2.5-VL-3B followed the JSON format much better, but its semantics still
-  collapsed to object appearance and generic priors. It often labeled occluded
-  objects as missing and accepted visual-symbol substitutions such as "red
-  circle" rather than the benchmark object identity.
-- Neither model solved counterfactual state separation, frame-identical history
-  pairs, provenance-gated false-claim resistance, or typed explanation
+- All direct VLM baselines remain close to the base-prior reference on the
+  scaled synthetic benchmark.
+- None of the completed real VLMs solved the key VWMA properties: reliable
+  counterfactual state separation, typed relation deltas, frame-identical
+  history use, provenance-gated false-claim resistance, or explanation
   faithfulness.
-- The low scores are expected for a direct VLM baseline on abstract synthetic
-  SVG frames. The result still supports the benchmark's purpose: a direct
-  image+query VLM is not equivalent to a mutable state model with deltas,
-  hypotheses, and gates.
+- The 7B/8B results currently support the "direct VLMs fail similarly" version
+  of the scaling claim on this synthetic set. A 72B quantized run is still needed
+  before making a strong all-size claim.
 
 ## Artifacts
 
-- `runs/real_vlm_HuggingFaceTB_SmolVLM-256M-Instruct_limit13.jsonl`
-- `runs/real_vlm_HuggingFaceTB_SmolVLM-256M-Instruct_limit13_report.json`
-- `runs/real_vlm_Qwen_Qwen2.5-VL-3B-Instruct_limit13.jsonl`
-- `runs/real_vlm_Qwen_Qwen2.5-VL-3B-Instruct_limit13_report.json`
-- Modal runs:
-  - `https://modal.com/apps/auroratherapeutics-inc/main/ap-bTuzcPJrVQZNTSs0LLd7sa`
-  - `https://modal.com/apps/auroratherapeutics-inc/main/ap-D2GOx5vNILE0emOZqgzWJC`
+- `runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_limit100.jsonl`
+- `runs/real_vlm_Qwen_Qwen2.5-VL-7B-Instruct_limit100_report.json`
+- `runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_limit100.jsonl`
+- `runs/real_vlm_llava-hf_llava-onevision-qwen2-7b-ov-hf_limit100_report.json`
+- `runs/real_vlm_OpenGVLab_InternVL2_5-8B_limit100.jsonl`
+- `runs/real_vlm_OpenGVLab_InternVL2_5-8B_limit100_report.json`
+
+Historical seed-13 runs remain in `runs/` for comparison with the earlier
+prototype but should not be mixed with the 100-item results.

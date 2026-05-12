@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>object with possible string</title>
+<line data-id="string" x1="400" y1="80" x2="400" y2="230" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+<circle data-id="weight" cx="400" cy="270" r="42" fill="#be123c"/>
+<rect data-id="hand" x="280" y="242" width="100" height="42" rx="8" fill="#c79a65"/>
+</svg>

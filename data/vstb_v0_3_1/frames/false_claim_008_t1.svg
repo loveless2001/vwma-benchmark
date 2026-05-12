@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+<rect width="800" height="420" fill="#f8fafc"/>
+<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
+<title>object covered</title>
+<circle data-id="keys_partial" cx="180" cy="260" r="28" fill="#f2c94c"/>
+<rect data-id="paper" x="150" y="220" width="210" height="130" rx="8" fill="#8cc7a1"/>
+</svg>

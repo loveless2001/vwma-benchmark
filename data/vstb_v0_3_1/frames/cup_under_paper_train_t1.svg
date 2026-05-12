@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
-<rect width="800" height="420" fill="#f8fafc"/>
-<rect x="60" y="350" width="680" height="30" fill="#475569" opacity="0.2"/>
-<title>training cup partly covered by paper</title>
-<circle data-id="cup_partial" cx="310" cy="255" r="45" fill="#ef476f"/>
-<rect data-id="paper" x="270" y="225" width="190" height="120" rx="8" fill="#f8fafc"/>
-</svg>
